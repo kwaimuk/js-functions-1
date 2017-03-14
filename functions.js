@@ -8,8 +8,6 @@ function numberToString(Number){
 	return n=Number;
 }
 
-var n =15;
-numberToString(n);
 
 /**
  * Adds one to a given number.
@@ -21,7 +19,7 @@ function increase(bin){
 	 bin++;
 	 return bin;
 }
- increase(n);
+ // 
 /**
  * Subtracts one from a given number.
  * @param {number} n
@@ -31,7 +29,7 @@ function decrease(bin){
 	 bin--;
 	 return bin;
 }
- decrease(n);
+ 
 
 /**
  * Adds two numbers.
@@ -45,9 +43,7 @@ function decrease(bin){
  	return sum;
 
  }
- var x= 1;
- var y= 2;
-add(x,y);
+
 
 /**
  * Subtracts the second number from the first.
@@ -61,9 +57,7 @@ add(x,y);
  	return minus;
 
  }
- var x= 1;
- var y= 2;
-subtract(x,y);
+ 
 
 /**
  * Multiplies two numbers.
@@ -77,9 +71,7 @@ subtract(x,y);
  	return product;
 
  }
- var x= 1;
- var y= 2;
-multiply(x,y);
+ 
 
 /**
  * Divides the first number by the second.
@@ -93,9 +85,7 @@ function divide(gee,ree){
  	return division;
 
  }
- var x= 1;
- var y= 2;
-divide(x,y);
+
 
 /**
  * Multiplies a number by itself.
@@ -108,8 +98,7 @@ function square(glee){
  	return squarie;
 
  }
- var x= 4;
-square(x);
+
 
 /**
  * Performs a mathematical operation on two numbers.
@@ -119,8 +108,25 @@ square(x);
  * @param {number} y
  * @return {number} the result
  */
-function calculate(x,y,z){
+function calculate(operation,x,y){
+var print;
+var result;
+if(operation==="add"){
+	result= x+y;
+	print= x +" + "+ y +" = "+ result;
+}else if(operation==="subtract"){
+	result= x-y;
+	print= x +" - "+ y +" = "+ result;
+}else if(operation==="multiply"){
+	result= x*y;
+	print= x +" * "+ y +" = "+ result;
 
+}else if(operation==="divide"){
+	result= x/y;
+	print= x +" / "+ y + " = " + result;
+}
+console.log(print);
+return result;
 }
 
 /**
@@ -133,9 +139,7 @@ function isGreaterThan(a,b){
 	return a>b;
 	
 }
-var gee= 6;
-var pee= 5;
-isGreaterThan(gee,pee);
+
 
 
 /**
@@ -148,9 +152,7 @@ function isLessThan(a,b){
 return a<b;
 }
 
-var lee= 7;
-var pee= 8;
-isLessThan(lee,pee);
+
 
 /**
  * Returns true if `a` and `b` are equal.
@@ -158,17 +160,17 @@ isLessThan(lee,pee);
  * @param {number} b
  * @return {boolean} the numbers are equal
  */
-function areEqual(lee,pee){
-	if(lee===pee){
+function areEqual(a,b){
+	if(a===b){
 		status = true;
-		return status;
+		return true;
+	}else{
+		return false;
 	}
+	
 }
 
-var status;
-var a= 8;
-var b= 8;
-areEqual(a,b);
+
 
 /**
  * Returns the smallest value of two numbers.
@@ -176,9 +178,7 @@ areEqual(a,b);
  * @param {number} y
  * @return {number} the smallest number
  */
-var smallest =0;
-var d = 4;
-var g = 6;
+
 function minimum(pow,wow){
 	if(pow>wow){
 		smallest=wow;
@@ -196,9 +196,7 @@ function minimum(pow,wow){
  * @param {number} y
  * @return {number} the largest number
  */
-var largest =0;
-var d = 4;
-var g = 6;
+
 function maximum(pow,wow){
 	if(pow<wow){
 		largest=wow;
@@ -214,8 +212,7 @@ function maximum(pow,wow){
  * @param {number} n
  * @return {boolean} the number is even
  */
-var eEven=0;
-var n =4;
+
 function isEven(numbah){
 	if(numbah%2===0){
 		eEven= true;
@@ -229,8 +226,6 @@ function isEven(numbah){
  * @return {boolean} the number is odd
  */
 
-var oOdd=0;
-var n =9;
 function isOdd(numbah){
 	if(numbah%2===1){
 		oOdd= true;
@@ -249,6 +244,27 @@ function isOdd(numbah){
  * @return {string} the score represented as a letter grade
  */
 
+//alternatively check out switch if this no work
+function letterGrade(score,total){
+	var percent;
+	percent=(score/total)*100;
+
+	if(percent<100&&percent>=90){
+		grade="A";
+	}else if(percent<89&&percent>=80){
+		grade="B";
+	}else if (percent<79&&percent>= 70){
+		grade="C";
+	}else if (percent<70&&percent>=60){
+		grade="D";
+	}else {
+		grade="F";
+	}
+	return grade;
+}
+	
+	
+	
 
 /**
  * Checks if a `restaurant` object has a `reviews` property.
@@ -257,6 +273,14 @@ function isOdd(numbah){
  * @param {object} restaurant   represents a restaurant object
  * @return {object} restaurant
  */
+ function incrementReviews(restaurant){
+ 	if(restaurant.reviews>0){
+ 		restaurant.reviews++;
+ 	}else{
+ 		restaurant.reviews=1;
+ 	}
+ 	return restaurant;
+ }
 
 
 /**
@@ -265,15 +289,14 @@ function isOdd(numbah){
  * @param {string} word2
  * @return {string} joined the words joined with a space
  */
-var one ="all";
-var two ="aboard!";
-var container=0;
+
+
 function combine(word1,word2){
 	container = word1 +" "+ word2;
 	return container;
 
 }
-combine(one,two);
+
 
 /**
  * Returns a circle object with the properties `circumference` and `area`.
@@ -282,4 +305,10 @@ combine(one,two);
  * @param {number} radius
  * @return {object} circle
  */
-
+ 
+function createCircle(number){
+	var circle={};
+	circle.circumference= 2 * Math.PI * number;
+	circle.area= Math.PI*number*number;
+	return circle;
+}
